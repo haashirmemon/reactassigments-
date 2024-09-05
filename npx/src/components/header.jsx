@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import Home from "../pages/home"
 
 
 function Header() {
@@ -18,13 +19,15 @@ function Header() {
             >
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
-            <span className="ml-3 text-xl">Tailblocks</span>
+            <span className="ml-3 text-xl">Products App</span>
           </a>
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
-          <Link to={"/"} className="mr-5 hover:text-gray-900">Home</Link>
+         
+          <Link to={"Home"} className="mr-5 hover:text-gray-900">Home</Link>
             <Link  to={"about"}className="mr-5 hover:text-gray-900">about</Link>
             <Link  to={"contactus"} className="mr-5 hover:text-gray-900">contact us </Link>
-            <Link to={"services"} className="mr-5 hover:text-gray-900">services</Link>
+            <Link to={"services"} className="mr-5 hover:text-gray-900">services</Link>   
+              <Link to={"products"} className="mr-5 hover:text-gray-900">products</Link>
            
           </nav>
           <button className="inline-flex items-center font-bold bg-red-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">

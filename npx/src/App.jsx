@@ -4,27 +4,35 @@ import './App.css'
 import { data } from 'autoprefixer'
 import Header from './components/header'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Productslist from './pages/home'
+
 import About from './pages/about'
 import ContactUs from './pages/contactus'
 import Services from './pages/services'
+import Productdetail from './pages/productdetail'
+
+
+import Productlist from './pages/productlist'
+import Home from './pages/home'
 
 
 function App() {
- return(
-  <>
-<BrowserRouter>
-<Header/>
-<Routes>
-  <Route path='/' element={<Productslist/>}>
-  </Route>
-  <Route path='/about' element={<About/>}/> 
-  <Route path='/contactus' element={<ContactUs/>}/>
-  <Route path='/services' element={<Services/>}/>
-</Routes>
-</BrowserRouter>
-  </>
- )
+  return (
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+
+          <Route path='/Home' element={<Home/>} />
+          {/* <Route path='/Home' element={<Home/>} /> */}
+          <Route path='/products' element={<Productlist />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/contactus' element={<ContactUs />} />
+          <Route path='/services' element={<Services />} />
+          <Route path="/products/:id" element={<Productdetail/>} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  )
 }
 
 export default App;
