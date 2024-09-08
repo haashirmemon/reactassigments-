@@ -13,17 +13,19 @@ import Productdetail from './pages/productdetail'
 
 import Productlist from './pages/productlist'
 import Home from './pages/home'
+import Themecontextprovider from './context/themecontext'
 
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+    <Themecontextprovider>
+    <BrowserRouter>
         <Header />
         <Routes>
 
+          <Route path='/' element={<Home/>} />
           <Route path='/Home' element={<Home/>} />
-          {/* <Route path='/Home' element={<Home/>} /> */}
           <Route path='/products' element={<Productlist />} />
           <Route path='/about' element={<About />} />
           <Route path='/contactus' element={<ContactUs />} />
@@ -31,6 +33,8 @@ function App() {
           <Route path="/products/:id" element={<Productdetail/>} />
         </Routes>
       </BrowserRouter>
+    </Themecontextprovider>
+     
     </>
   )
 }

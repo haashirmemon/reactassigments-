@@ -2,8 +2,11 @@
 
 function About () {
     return(
+
+
         <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
         <h1>About Us</h1>
+
         <p>
           Welcome to our website! We are a team of passionate individuals dedicated to delivering the best
           services and products to our customers. Our mission is to provide innovative solutions that make

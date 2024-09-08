@@ -1,12 +1,16 @@
 
 
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { Themecontext } from '../context/themecontext';
+import Button from '../components/button';
 
 function Home() {
   const [post, setPost] = useState([]);
   const [price, setPrice] = useState('select'); // State to hold selected price filter
   const [search, setSearch] = useState(''); // State to hold search input
   const [filtered, setFiltered] = useState([]);
+  const {theme,settheme}= useContext(Themecontext)
+ 
 
   // Fetch products from the API
   useEffect(() => {
@@ -39,7 +43,8 @@ function Home() {
 
   return (
     <>
-      <h1 className='mt-4 mb-6 font-serif text-center text-blue-300'>
+    <div className={`${theme === 'light' ? "bg-gray-200 text-gray-800" : "bg-zinc-700 text-white"}`}> 
+       <h1 className='mt-4 mb-6 font-serif text-3xl text-center text-blue-500'>
         Products assignment using React.js
       </h1>
 
@@ -50,7 +55,15 @@ function Home() {
         className="w-full border-2 p-3 font-bold"
         onChange={(e) => setSearch(e.target.value)}
       />
-
+      <Button 
+onPress={()=>{
+  if (theme ==="light") {
+    settheme("dark")
+  } else {
+    settheme("light")
+  }
+}}
+title={theme ==="light"? "make it dark":"make it light"}/>
       {/* Price Filter Dropdown */}
       <select
         name="prices"
@@ -69,7 +82,9 @@ function Home() {
         <option value="1000">Up to $1000</option>
       </select>
 
+
       {/* Product Cards Section */}
+
       <section className="text-white-600 body-font">
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap -m-4">
@@ -130,7 +145,7 @@ function Home() {
             ))}
           </div>
         </div>
-      </section>
+      </section></div>
     </>
   );
 }
