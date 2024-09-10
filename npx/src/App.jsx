@@ -1,7 +1,6 @@
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+
 import './App.css'
-import { data } from 'autoprefixer'
+
 import Header from './components/header'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 
@@ -14,6 +13,8 @@ import Productdetail from './pages/productdetail'
 import Productlist from './pages/productlist'
 import Home from './pages/home'
 import Themecontextprovider from './context/themecontext'
+import Signinform from './pages/auth/signin'
+import Signupform from './pages/auth/signup'
 
 
 function App() {
@@ -31,6 +32,8 @@ function App() {
           <Route path='/contactus' element={<ContactUs />} />
           <Route path='/services' element={<Services />} />
           <Route path="/products/:id" element={<Productdetail/>} />
+          <Route path="/signin" element={<Signinform/>} />
+          <Route path="/signup" element={<Signupform/>} />
         </Routes>
       </BrowserRouter>
     </Themecontextprovider>

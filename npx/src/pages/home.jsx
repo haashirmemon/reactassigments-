@@ -10,6 +10,8 @@ function Home() {
   const [search, setSearch] = useState(''); // State to hold search input
   const [filtered, setFiltered] = useState([]);
   const {theme,settheme}= useContext(Themecontext)
+
+
  
 
   // Fetch products from the API
@@ -43,8 +45,8 @@ function Home() {
 
   return (
     <>
-    <div className={`${theme === 'light' ? "bg-gray-200 text-gray-800" : "bg-zinc-700 text-white"}`}> 
-       <h1 className='mt-4 mb-6 font-serif text-3xl text-center text-blue-500'>
+   <div className={`${theme === 'light' ? "bg-white text-black" : "bg-zinc-400 text-white"}`}>
+   <h1 className='mt-4 mb-6 font-serif text-3xl text-center text-blue-500'>
         Products assignment using React.js
       </h1>
 
@@ -55,15 +57,7 @@ function Home() {
         className="w-full border-2 p-3 font-bold"
         onChange={(e) => setSearch(e.target.value)}
       />
-      <Button 
-onPress={()=>{
-  if (theme ==="light") {
-    settheme("dark")
-  } else {
-    settheme("light")
-  }
-}}
-title={theme ==="light"? "make it dark":"make it light"}/>
+     
       {/* Price Filter Dropdown */}
       <select
         name="prices"
@@ -145,7 +139,9 @@ title={theme ==="light"? "make it dark":"make it light"}/>
             ))}
           </div>
         </div>
-      </section></div>
+      </section>
+   </div>
+      
     </>
   );
 }

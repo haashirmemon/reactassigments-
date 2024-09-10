@@ -1,9 +1,20 @@
+
+
+
+
 import { Link } from "react-router-dom"
 import Home from "../pages/home"
+import Button from "./button"
+import { Themecontext } from "../context/themecontext"
+import { useContext } from "react"
+
+
 
 
 function Header() {
+  const {theme,settheme}= useContext(Themecontext)
     return(
+      <div className={`${theme === 'light' ? "bg-gray-200 text-gray-800" : "bg-zinc-400 text-white"}`}> 
         <header className="text-gray-600 body-font">
         <div className="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
           <a className="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
@@ -19,7 +30,7 @@ function Header() {
             >
               <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
             </svg>
-            <span className="ml-3 text-xl">Products App</span>
+            <span className="ml-3 text-3xl">Products App</span>
           </a>
           <nav className="md:ml-auto flex flex-wrap items-center text-base justify-center">
          
@@ -30,9 +41,10 @@ function Header() {
               <Link to={"products"} className="mr-5 hover:text-gray-900">products</Link>
            
           </nav>
-          <button className="inline-flex items-center font-bold bg-red-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
-          login
-            <svg
+          <button className="inline-flex items-center font-bold bg-red-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 md:mt-0 my-4 mx-4">
+          <Link  to={"signin"}className="mr-5 text-black">login 
+          </Link>
+          <svg
               fill="none"
               stroke="currentColor"
               strokeLinecap="round"
@@ -44,8 +56,33 @@ function Header() {
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>
           </button>
+          <button className="inline-flex items-center font-bold bg-red-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 md:mt-0 my-4 mx-4">
+          <Link  to={"signup"}className="mr-5 text-black">signup 
+          </Link>
+          <svg
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              className="w-4 h-4 ml-1"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+          <Button
+onPress={()=>{
+  if (theme ==="light") {
+    settheme("dark")
+  } else {
+    settheme("light")
+  }
+}}
+title={theme ==="light"? "make it dark":"make it light"}/>
         </div>
       </header>
+      </div>
       
         
     )

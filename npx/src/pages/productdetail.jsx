@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-
+import { Themecontext } from '../context/themecontext';
+import { useContext } from 'react';
 
 function Productdetail() {
 const {id}=useParams()
 const [product,setproduct] =useState({})
 const [loading,setloading] =useState(true)
 const [notfound,setnotfound] =useState(false)
+const {theme,settheme}= useContext(Themecontext)
 
 useEffect(()=>{
     setnotfound(false)
@@ -25,7 +27,8 @@ setproduct(res.data)
 
 
     return(
-    <div className="  container mx-auto">
+   <div  className={`${theme === 'light' ? "bg-white text-black" : "bg-zinc-400 text-white"}`}>
+     <div className="  container mx-auto">
         {
         loading ? <h1>loading...</h1>:
         notfound?<h1>products not found..</h1>:
@@ -62,6 +65,7 @@ setproduct(res.data)
         
         
       </div>
+   </div>
 
 
 

@@ -50,7 +50,7 @@ function Productlist() {
 
 
   return (
- <div className={`${theme === 'light' ? "bg-white text-black" : "bg-zinc-700 text-white"}`}>
+ <div className={`${theme === 'light' ? "bg-white text-black" : "bg-zinc-400 text-white"}`}>
 
    <div className='container mx-auto'> 
   { loading ?(<h1>loading ...</h1>) 
@@ -61,15 +61,7 @@ function Productlist() {
         type="search"
         className="w-full border-2 p-3 font-bold"
         onChange={(e) => setSearch(e.target.value)}
-      />  <Button
-      onPress={()=>{
-        if (theme ==="light") {
-          settheme("dark")
-        } else {
-          settheme("light")
-        }
-      }}
-      title={theme ==="light"? "make it dark":"make it light"}/>
+      />  
 
       
     <div className='flex gap-3 flex-wrap'>

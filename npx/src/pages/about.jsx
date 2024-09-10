@@ -1,10 +1,14 @@
+import { Themecontext } from '../context/themecontext';
+import { useContext } from 'react';
 
 
 function About () {
+  const {theme,settheme}= useContext(Themecontext)
+
     return(
 
-
-        <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+      <div className={`${theme === 'light' ? "bg-white text-black" : "bg-zinc-400 text-white"}`}>
+          <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
         <h1>About Us</h1>
 
         <p>
@@ -27,6 +31,7 @@ function About () {
           Thank you for visiting our website. We look forward to serving you and meeting your needs. If you
           have any questions or feedback, please feel free to contact us.
         </p>
+      </div>
       </div>
     )
         };

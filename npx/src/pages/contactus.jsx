@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Themecontext } from '../context/themecontext';
+import { useContext } from 'react';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -6,6 +8,7 @@ const ContactUs = () => {
     email: '',
     message: ''
   });
+  const {theme,settheme}= useContext(Themecontext)
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -28,7 +31,8 @@ const ContactUs = () => {
   };
 
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+  <div   className={`${theme === 'light' ? "bg-white text-black" : "bg-zinc-400 text-white"}`}>
+      <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h1>Contact Us</h1>
       <form onSubmit={handleSubmit} style={{ maxWidth: '400px', margin: '0 auto' }}>
         <div style={{ marginBottom: '10px' }}>
@@ -71,6 +75,7 @@ const ContactUs = () => {
         </button>
       </form>
     </div>
+  </div>
   );
 };
 

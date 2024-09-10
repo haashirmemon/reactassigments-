@@ -1,8 +1,13 @@
 import React from 'react';
+import { Themecontext } from '../context/themecontext';
+import { useContext } from 'react';
 
 const Services = () => {
+  const {theme,settheme}= useContext(Themecontext)
+
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+    <div   className={`${theme === 'light' ? "bg-white text-black" : "bg-zinc-400 text-white"}`}>
+      <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
       <h1>Our Services</h1>
       <p>We offer a variety of services to meet your needs. Below are some of the key services we provide:</p>
       
@@ -35,6 +40,7 @@ const Services = () => {
           </p>
         </div>
       </div>
+    </div>
     </div>
   );
 };
