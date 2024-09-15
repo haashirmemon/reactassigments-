@@ -12,6 +12,7 @@ function Signupform() {
     const [password, setPassword] = useState("");
     const [username, setusername] = useState("");
     const [loading, setLoading] = useState(false);
+    const goToHomePage = () => navigate("/");
   
     const handleSignUp = async () => {
       try {
@@ -19,7 +20,7 @@ function Signupform() {
         console.log(email, password);
         const user = await createUserWithEmailAndPassword(auth, email, password);
         console.log("user==>", user);
-        navigate("/");
+        navigate("/")
         setLoading(false);
       } catch (err) {
         setLoading(false);
@@ -55,9 +56,7 @@ function Signupform() {
             />
     
             <Button onClick={handleSignUp} isLoading={loading} title={"Signup"} />
-            <h1 className="text-center  my-4">or</h1>
 
-<Button onClick={handleSignUp} isLoading={loading} title={"signup  with google"} />
 
           </div>
         </div>

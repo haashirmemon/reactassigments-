@@ -15,9 +15,11 @@ function Productlist() {
   const [loading , setloading] = useState(true)
   const [categories ,setcategories ] = useState('')
   const {theme,settheme}= useContext(Themecontext)
-
+  const {search , setSearch} =useState()
 
   const [chosencategory , setchosencategory] = useState("All")
+
+  
   useEffect(() => {
     console.log("use affect call hogaya");
     const url =
@@ -58,6 +60,7 @@ function Productlist() {
   (<div> 
         <input
         placeholder="Search"
+       
         type="search"
         className="w-full border-2 p-3 font-bold"
         onChange={(e) => setSearch(e.target.value)}

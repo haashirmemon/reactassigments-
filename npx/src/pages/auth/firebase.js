@@ -4,7 +4,6 @@ import { getAuth,GoogleAuthProvider,signOut,onAuthStateChanged,signInWithEmailAn
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 
-
 const firebaseConfig = {
   apiKey: "AIzaSyD9GDtcJxLP2TTjYoTMTZewiPfeAaBOv_8",
   authDomain: "st-project-25a1c.firebaseapp.com",
@@ -14,7 +13,6 @@ const firebaseConfig = {
   appId: "1:980243412065:web:5fdaeda4583a3b6a0be620",
   measurementId: "G-BQY9RECC58"
 };
-
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);

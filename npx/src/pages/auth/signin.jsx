@@ -1,54 +1,25 @@
 import { useState } from "react";
 
-import { signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { signInWithEmailAndPassword, } from "firebase/auth";
 
 import { useNavigate } from "react-router";
 import Button from "../../components/button";
 
-import { GoogleAuthProvider } from "firebase/auth";
+
 import { auth } from "./firebase";
+import { Link } from "react-router-dom";
 function Signinform() {
     const navigate = useNavigate();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [loading, setLoading] = useState(false);
+    
 
-  const handleSignInwithgoogle = ()=>{
-const provider = new GoogleAuthProvider();
-provider.addScope('https://www.googleapis.com/auth/contacts.readonly');
-signInWithPopup(auth, provider)
-  .then((result) => {
-    console.log(result);
-    
-    // This gives you a Google Access Token. You can use it to access the Google API.
-    const credential = GoogleAuthProvider.credentialFromResult(result);
-    const token = credential.accessToken;
-    // The signed-in user info.
-    const user = result.user;
-    console.log(user);
-    
-    // IdP data available using getAdditionalUserInfo(result)
-    // ...
-  }).catch((error) => {
-    
-    // Handle Errors here.
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // The email of the user's account used.
-    const email = error.customData.email;
-    // The AuthCredential type that was used.
-    const credential = GoogleAuthProvider.credentialFromError(error);
-   
-    console.log(error,errorCode,errorMessage);
-
-    // ...
-  });
-  }
     const handleSignIn = async () => {
       try {
         setLoading(true);
         console.log(email, password);
-        const user = await signInWithEmailAndPassword(auth, email, password);
+        const user = await signInWithEmailAndPassword(auth,email, password );
         console.log("user==>", user);
         navigate("/");
         setLoading(false);
@@ -79,11 +50,28 @@ signInWithPopup(auth, provider)
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
-      
+  
       <Button onClick={handleSignIn} isLoading={loading} title={"Login"} />
- <h1 className="text-center  my-4">or</h1>
+      <h1 className="text-center  my-4">dont' have account</h1>
+ <button className="inline-flex items-center font-bold bg-red-400 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 rounded text-base mt-4 md:mt-0 my-4 mx-4">
 
- <Button onClick={handleSignInwithgoogle} isLoading={loading} title={"signin  with google"} />
+          <Link  to={"/signin/signup"}className="mr-5 text-black">create account 
+          </Link>
+          <svg
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              className="w-4 h-4 ml-1"
+              viewBox="0 0 24 24"
+            >
+              <path d="M5 12h14M12 5l7 7-7 7" />
+            </svg>
+          </button>
+
+
+
 
             </div>
           </div>

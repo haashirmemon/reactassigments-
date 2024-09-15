@@ -6,10 +6,16 @@ import About from './pages/about.jsx'
 import Services from './pages/services.jsx'
 import ContactUs from './pages/contactus.jsx'
 import Products from './pages/productlist.jsx'
+import UserContextProvider from './context/usercontext.jsx'
+import Themecontextprovider from './context/themecontext.jsx'
 
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    < App />
+    <UserContextProvider>
+      <Themecontextprovider>
+      < App />
+      </Themecontextprovider>
+    </UserContextProvider>
   </StrictMode>,
 )

@@ -1,7 +1,8 @@
-function Button({onPress ,bgColor , title }) {
+function Button({ bgColor , title  , onClick}) {
    return (
      <button 
-     onClick={onPress}
+     onClick={onClick}
+     
      style={
       { backgroundColor:  bgColor }}>
          {title}</button>
