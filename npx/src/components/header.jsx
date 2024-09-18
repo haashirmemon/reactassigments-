@@ -8,6 +8,7 @@ import { UserContext } from "../context/usercontext";
 import { auth } from "../pages/auth/firebase";
 import { signOut } from "firebase/auth";
 
+
 function Header() {
 const  {user}  = useContext(UserContext);
   console.log("user->",user)
