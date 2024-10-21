@@ -81,7 +81,7 @@ function Productlist() {
       {categories.map((category)=> <Categorychips 
       onClick={()=>setchosencategory(category.slug)}
       
-      ischosen={category.slug===chosencategory}
+      ischosen={category.slug === chosencategory}
       category={category} key={category.slug}/>)}</div>
  
 

@@ -46,15 +46,15 @@ function Home() {
   return (
     <>
    <div className={`${theme === 'light' ? "bg-white text-black" : "bg-zinc-400 text-white"}`}>
-   <h1 className='mt-4 mb-6 font-serif text-3xl text-center text-blue-500'>
+   {/* <h1 className='mt-4 mb-6 font-serif text-3xl text-center text-blue-500'>
         Products assignment using React.js
-      </h1>
+      </h1> */}
 
       {/* Search Input */}
       <input
         placeholder="Search"
         type="search"
-        className="w-full border-2 p-3 font-bold"
+        className="w-full border-2 p-3 font-bold my-3"
         onChange={(e) => setSearch(e.target.value)}
       />
      
